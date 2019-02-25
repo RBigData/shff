@@ -32,7 +32,7 @@ write_shff = function(x, file, dataset=NULL, compression=4)
     stop("object 'x' is an unsupported type")
   
   fp = h5file(file, mode="a")
-  h5_check_dataset(h5_fp, dataset)
+  h5_check_dataset(fp, dataset)
   
   write_shff_aij(mm, fp, dataset)
   
