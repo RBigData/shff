@@ -8,6 +8,8 @@
 
 🚨 Highly experimental 🚨
 
+shff (short for 'sparse HDF5 file format') is a set of high level utilities for storing and reading sparse matrices with HDF5.
+
 
 
 ## Installation
