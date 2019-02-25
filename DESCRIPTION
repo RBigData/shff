@@ -14,7 +14,7 @@ Imports:
 Enhances:
     Matrix
 ByteCompile: yes
-BugReports: https://github.com/rbigdata/hdfio/issues
+BugReports: https://github.com/rbigdata/shff/issues
 Authors@R: c(
     person("Drew", "Schmidt", role=c("aut", "cre"), email="wrathematics@gmail.com"),
     person("ORNL", role = "cph")
