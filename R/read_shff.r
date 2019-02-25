@@ -55,13 +55,17 @@ extract = function(fp, dataset, indices)
     fp[[dataset]][indices]
 }
 
+
+
 read_shff_mm = function(fp, dataset, indices)
 {
-  M = h5attr(fp[[dataset]], "nrows")
-  N = h5attr(fp[[dataset]], "ncols")
-  nz = h5attr(fp[[dataset]], "nz")
-  matcode = mm_matcode_int2char(h5attr(fp[[dataset]], "matcode"))
-  indexing = h5attr(fp[[dataset]], "indexing")
+  attrs = glue(dataset, ATTR_PATH)
+  format = h5attr(fp[[attrs]], "format")
+  M = h5attr(fp[[attrs]], "nrows")
+  N = h5attr(fp[[attrs]], "ncols")
+  nz = h5attr(fp[[attrs]], "nz")
+  matcode = mm_matcode_int2char(h5attr(fp[[attrs]], "matcode"))
+  indexing = h5attr(fp[[attrs]], "indexing")
   
   I = extract(fp, glue(dataset, "I"), indices)
   J = extract(fp, glue(dataset, "J"), indices)

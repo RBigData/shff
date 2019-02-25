@@ -34,7 +34,7 @@ write_shff = function(x, file, dataset=NULL, compression=4)
   fp = h5file(file, mode="a")
   h5_check_dataset(h5_fp, dataset)
   
-  write_shff_mm(mm, fp, dataset)
+  write_shff_aij(mm, fp, dataset)
   
   h5close(fp)
   invisible()
@@ -42,14 +42,19 @@ write_shff = function(x, file, dataset=NULL, compression=4)
 
 
 
-write_shff_mm = function(mm, fp, dataset)
+write_shff_aij = function(mm, fp, dataset)
 {
   createGroup(fp, dataset)
-  h5attr(fp[[dataset]], "indexing") = mm$indexing
-  h5attr(fp[[dataset]], "nrows") = mm$M
-  h5attr(fp[[dataset]], "ncols") = mm$N
-  h5attr(fp[[dataset]], "nz") = mm$nz
-  h5attr(fp[[dataset]], "matcode") = mm_matcode_char2int(mm$matcode)
+  h5attr(fp[[dataset]], "SHFF_VERSION") = SHFF_VERSION
+  
+  attrs = glue(dataset, ATTR_PATH)
+  createGroup(fp, attrs)
+  h5attr(fp[[attrs]], "format") = SHFF_FORMAT_AIJ
+  h5attr(fp[[attrs]], "indexing") = mm$indexing
+  h5attr(fp[[attrs]], "nrows") = mm$M
+  h5attr(fp[[attrs]], "ncols") = mm$N
+  h5attr(fp[[attrs]], "nz") = mm$nz
+  h5attr(fp[[attrs]], "matcode") = mm_matcode_char2int(mm$matcode)
   
   fp[[glue(dataset, "I")]] = mm$I
   fp[[glue(dataset, "J")]] = mm$J

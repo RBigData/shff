@@ -55,7 +55,6 @@ mat2mm = function(x)
 
 
 
-
 mm2mat = function(mm)
 {
   symmetric = mm_is_symmetric(mm$matcode)
