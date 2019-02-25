@@ -1,8 +1,5 @@
 ^\.travis\.yml$
+LICENSE.md
 
 scripts
-^.*\.Rproj$
-^\.Rproj\.user$
 
-inst/doc
-vignettes/
