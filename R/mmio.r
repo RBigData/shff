@@ -269,7 +269,7 @@ mm_read_mtx_crd_entry = function(f, matcode)
     stop("unsupported type")
   
   
-  list(M=size$M, N=size$N, nz=size$nz, I=df[, 1], J=df[, 2], val=val, matcode=matcode)
+  list(M=size$M, N=size$N, nz=size$nz, I=df[, 1], J=df[, 2], real=real, imag=imag, matcode=matcode)
 }
 
 
