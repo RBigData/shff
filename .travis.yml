@@ -21,7 +21,5 @@ before_install:
   - popd
 
 r_packages:
-  - data.table
   - memuse
   - hdf5r
-  - bit64
