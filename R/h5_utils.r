@@ -32,3 +32,23 @@ h5_get_dataset = function(h5_fp, dataset)
   
   dataset
 }
+
+
+
+h5_detect_format = function(h5_fp, dataset, verbose=FALSE)
+{
+  if (isTRUE(verbose))
+    cat("detecting format...")
+  
+  attrs = h5attributes(h5_fp)
+  
+  if (!is.null(attrs$SHFF_VERSION))
+    fmt = "shff"
+  else
+    fmt = "unknown"
+  
+  if (isTRUE(verbose))
+    cat(fmt, "\n")
+  
+  fmt
+}
