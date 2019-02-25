@@ -4,6 +4,7 @@
 #' hdf5.
 #' 
 #' @import hdf5r
+#' @importFrom utils read.table write.table
 #' 
 #' @name shff-package
 #' @docType package
