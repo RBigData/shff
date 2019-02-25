@@ -1,6 +1,6 @@
 is.Matrix = function(x)
 {
-  is(x, "dgTMatrix") || is(x, "ngTMatrix")
+  inherits(x, "dgTMatrix") || inherits(x, "ngTMatrix")
 }
 
 
@@ -41,9 +41,9 @@ mat2mm = function(x)
   N = dim(x)[2]
   nz = Matrix::nnzero(x)
   
-  if (is(x, "dgTMatrix"))
+  if (inherits(x, "dgTMatrix"))
     mm = mat2mm_dgTMatrix(x)
-  else if (is(x, "ngTMatrix"))
+  else if (inherits(x, "ngTMatrix"))
     mm = mat2mm_ngTMatrix(x)
   
   Imin = min(mm$I)
