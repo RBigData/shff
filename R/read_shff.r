@@ -9,19 +9,6 @@
 #' @param indices
 #' TODO
 #' 
-#' @return
-#' A dataframe.
-#' 
-#' @examples
-#' library(hdfio)
-#' 
-#' f = system.file("exampledata/pytables_table.h5", package="hdfio")
-#' df = read_h5df(f, "mydata")
-#' df
-#' 
-#' @seealso
-#' \code{\link{write_h5df}}
-#' 
 #' @export
 read_shff = function(h5in, dataset=NULL, indices=NULL)
 {
