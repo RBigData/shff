@@ -130,7 +130,8 @@ read_mm = function(f)
   mm$I = mm$I[ind]
   mm$J = mm$J[ind]
   
-  mm$indexing = indexing
+  # TODO FIXME
+  mm$indexing = min(1L, min(mm$I), min(mm$J))
   
   mm
 }
