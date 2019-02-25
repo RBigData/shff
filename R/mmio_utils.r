@@ -120,3 +120,17 @@ write_mm = function(f, mm)
 {
   mm_write_mtx_crd(f, mm$M, mm$N, mm$nz, mm$I, mm$J, mm$val, mm$matcode)
 }
+
+
+
+read_mm = function(f)
+{
+  mm = mm_read_mtx_crd(f)
+  ind = order(mm$I)
+  mm$I = mm$I[ind]
+  mm$J = mm$J[ind]
+  
+  mm$indexing = indexing
+  
+  mm
+}
